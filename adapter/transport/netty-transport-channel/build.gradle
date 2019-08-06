@@ -1,0 +1,7 @@
+dependencies {
+    implementation (
+            project(':domain'),
+            project(':server-use-case')
+    )
+    implementation 'io.netty:netty-all:4.1.38.Final'
+}

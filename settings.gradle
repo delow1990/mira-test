@@ -1,0 +1,20 @@
+rootProject.name = 'mira-test'
+include 'domain'
+include 'netty-server'
+include 'netty-client'
+include 'in-memory-db-simple'
+include 'server-use-case'
+include 'in-memory-transport-service'
+include 'netty-transport-channel'
+include 'config-manual-server'
+include 'simple-server-mapper'
+
+project(":netty-server").projectDir =file("application/netty/netty-server")
+project(":netty-client").projectDir =file("application/netty/netty-client")
+project(":in-memory-db-simple").projectDir = file("adapter/repository/in-memory-db-simple")
+project(":in-memory-transport-service").projectDir = file("adapter/transport/in-memory-transport-service")
+project(":netty-transport-channel").projectDir = file("adapter/transport/netty-transport-channel")
+project(":server-use-case").projectDir = file("use-case/server/server-use-case")
+project(":config-manual-server").projectDir = file("config/config-manual-server")
+project(":simple-server-mapper").projectDir = file("adapter/mapper/simple-server-mapper")
+

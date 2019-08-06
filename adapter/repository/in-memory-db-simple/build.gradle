@@ -1,0 +1,6 @@
+dependencies {
+    implementation (
+            project(':domain'),
+            project(':server-use-case')
+    )
+}
