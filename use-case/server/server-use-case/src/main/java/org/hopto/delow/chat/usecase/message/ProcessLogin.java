@@ -42,14 +42,15 @@ public class ProcessLogin implements MessageReceiver<LoginMessage> {
 
         user.setUsername(event.getUsername());
 
-        List<TextResponse> textMessages = messageRepository.findAll();
-
         try {
             userRepository.add(user);
+
         } catch (UserAlreadyExists userAlreadyExists) {
             return new ErrorResponse(user, userAlreadyExists.getMessage());
         }
         guestRepository.delete(user);
+
+        List<TextResponse> textMessages = messageRepository.findAll();
 
         return new LoginResponse(user, "Welcome, " + user.getUsername(), textMessages);
 

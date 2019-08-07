@@ -20,7 +20,7 @@ public class InMemoryGuestUserRepository implements UserRepository<String, User>
 
     @Override
     public Optional<User> findById(String id) {
-        return Optional.ofNullable(repo.getOrDefault(id, null));
+        return Optional.ofNullable(repo.get(id));
     }
 
     @Override

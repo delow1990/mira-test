@@ -37,13 +37,15 @@ public class InMemoryUserRepositoryImpl implements UserRepository<String, User> 
 
     @Override
     public Optional<User> findById(String id) {
-        return Optional.ofNullable(repo.getOrDefault(id, null));
+        return Optional.ofNullable(repo.get(id));
     }
 
     @Override
     public void delete(User entity) {
+        lock.lock();
         repo.remove(entity.getId());
         usernames.remove(entity.getUsername());
+        lock.unlock();
     }
 
     @Override
